@@ -3,11 +3,14 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const postSchema = new Schema({
-  author: Number,
   comments: [{ type: Schema.Types.ObjectId, ref: "Comments" }],
-  datePosted: Date,
-  topic: String,
-  content: Number,
+  datePosted: {
+    type: Date,
+    default: Date.now,
+  },
+  postedBy: String,
+  title: String,
+  body: String,
 });
 
 const postModel = mongoose.model("Posts", postSchema);
