@@ -7,7 +7,7 @@ const {
 } = require("../controllers/comments");
 var router = express.Router();
 
-router.get("/", getComments);
+router.get("/:post", getComments);
 router.post("/", addComment);
 router.patch("/:id", updateComment);
 router.delete("/:id", deleteComment);

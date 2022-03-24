@@ -3,7 +3,7 @@ const { commentModel } = require("../models/comments");
 // retrieves all items from schema
 const getComments = async (req, res) => {
   try {
-    const comments = await commentModel.find({ post: req.body.post });
+    const comments = await commentModel.find({ post: req.params.post });
 
     res.status(200).json(comments);
   } catch (error) {
